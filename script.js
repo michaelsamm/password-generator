@@ -16,12 +16,10 @@ var passwordChars = ""
 
 var lengthPrompt = function() {
   var length = prompt("How many characters in the password?");
-  if (length < 8 || length > 128) {
+  while (length < 8 || length > 128) {
     length = prompt('Entered value must be at least 8 characters and no more than 128 characters.');
   }
-  else {
-    passwordLength = length;
-  }
+  passwordLength = length;
 }
 
 var lowercaseChar = function() {
@@ -93,6 +91,8 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+
+  passwordChars = "";
 
 }
 
