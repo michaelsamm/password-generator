@@ -65,27 +65,23 @@ function generatePassword() {
   specialChar();
 
   while (!lowercaseConfirm && !uppercaseConfirm && !numericConfirm && !specialCharConfirm) {
-    alert("You must select at least one character type.")
+    alert("You must select at least one character type.");
+    passwordChars = "";
     lowercaseChar();
     uppercaseChar();
     numericChar();
     specialChar();
-    passwordChars = "";
-    console.log(lowercaseConfirm);
-    console.log(uppercaseConfirm); 
-    console.log(numericConfirm); 
-    console.log(specialCharConfirm);
+    
+    console.log(passwordChars);
   };
 
-  
+  var randomPassword = "";
 
-  // Gather length 
-    // length between 8 and 128 chars
-  // prompt for characters
-    // at least one character type must be selected
-  // Add a character from each type selected
-  // Add remaining characters to password 
-  // shuffle to ensure randomness of all characters
+  for (i = 0; i < passwordLength; i++) {
+    randomPassword += passwordChars.charAt(Math.floor(Math.random() * passwordChars.length));
+  }
+  return randomPassword;
+
 }
 
 // Get references to the #generate element
